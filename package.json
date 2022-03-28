@@ -1,0 +1,26 @@
+{
+  "name": "uptask",
+  "version": "1.0.0",
+  "description": "Proyecto UpTask",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GIT-Farre/Node.git"
+  },
+  "author": "Farre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GIT-Farre/Node/issues"
+  },
+  "homepage": "https://github.com/GIT-Farre/Node#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
