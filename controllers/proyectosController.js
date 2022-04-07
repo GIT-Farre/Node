@@ -46,7 +46,7 @@ exports.nuevoProyecto = async (req, res) =>{
         //No hay errores
         //Insertar en la BBDD
         // const url = slug(nombre).toLowerCase();
-        const proyecto = await Proyectos.create({ nombre });
+        await Proyectos.create({ nombre });
         res.redirect('/');
     }
 
@@ -89,4 +89,38 @@ exports.formularioEditar = async (req, res) =>{
         proyectos,
         proyecto
     })
+}
+
+exports.actualizarProyecto = async (req, res) =>{
+    const proyectos = await Proyectos.findAll();
+
+    //Enviar a consola
+    console.log(req.body);
+    //Validar que tengamos algo en el imput
+    const {nombre} = req.body;
+
+    let errores = [];
+
+    if(!nombre){
+        errores.push({'texto': 'Agrega un nombre al proyecto'})
+    }
+
+    //Si hay errores
+    if(errores.length>0){
+     res.render('nuevoProyecto', {
+         nombrePagina: 'Nuevo Proyecto',
+         errores,
+         proyectos
+     })   
+    } else{
+        //No hay errores
+        //Insertar en la BBDD
+        // const url = slug(nombre).toLowerCase();
+        await Proyectos.update(
+            { nombre: nombre },
+            { where: {id: req.params.id}}
+        );
+        res.redirect('/');
+    }
+
 }
