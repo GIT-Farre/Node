@@ -8,7 +8,8 @@ export const actualizarAvance = () =>{
 
         //calcular el avance
 
-        const avance = Math.round(tareasCompletas.lenght / tareas.length)*100;
+        const avance = (tareasCompletas.length / tareas.length)*100;
+
 
         //mostrar el avance
         const porcentaje = document.querySelector('#porcentaje');
